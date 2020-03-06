@@ -8,24 +8,10 @@
   // display password (that's what the 2nd function does)
   //NOTE: user specifications come from confirms (must save in variables following confirms)
   // 
-  // for (var i = 0; i <= "userLength"; i++) {
-    // take an array of numbers (set in a string (in link on readme)), and then make a random number using .js; 
-    // then, take that random number and find one set to .length to select from list
-  // }
 
-  //Failed attempt at creating a loop to simplify confirms. 
-//for (var i=0; i < 4; i++) {
-//   var character = confirm ("Do you want " + criteria[i] + " in your password?"); 
-//   if (character[i] == true) {
-//     console.log ("Happy"); 
-//   }
-//   else {
-//     console.log ("Sad"); 
-//   }
-
-// }
 
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
 
@@ -35,34 +21,43 @@ if (passLength < 8 | passLength > 128) {
   return; 
 }
 
-var criteria = ["special characters", "numbers", "lowercase letters", "uppercase letters"]
 if (confirm ("Do you want special characters in your password?")) {
   var specialChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"; 
+  var specCon = "[special characters] "; 
 }
 else {
-  var specialChar = ""; 
+  specCon = ""
 }
 if (confirm ("Do you want numbers in your password?")) {
   var numbers = "0123456789"; 
+  var numCon = "[numbers] "; 
 }
 else {
-  var numbers = ""; 
+  numCon = ""
 }
 if (confirm ("Do you want lowercase letters in your password?")) {
   var lowerCase = "abcdefghijklmnopqrstuvwxyz"; 
+  var lowCon = "[lowercase letters] "
 }
 else {
-  var lowerCase = ""; 
+  lowCon = ""
 }
 if (confirm ("Do you want uppercase letters in your password?")) {
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";   
+  var upCon = "[uppercase letters] "
 }
 else {
-  var upperCase = "";   
+  upCon = ""
 }
+
+alert ("You have chosen to include the following: " + specCon + numCon + lowCon + upCon)
+
 // Advice taken from https://stackoverflow.com/a/1349426 and https://stackoverflow.com/a/1497512 
     var string = "";       
     var charset = string.concat (specialChar, numbers, lowerCase, upperCase); 
+    if (charset === "") {
+      alert ("Whoops, you didn't select any character sets - there's nothing to display! Please choose at least one character set to include in your password.")
+    }
     var charLength = charset.length; 
         result = "";
     for (var i = 1; i <= passLength; i++) {
@@ -81,4 +76,3 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);

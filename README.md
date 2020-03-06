@@ -22,16 +22,22 @@ THEN I am presented with a series of prompts for password criteria
 <!-- Status: complete -->
 WHEN prompted for password criteria
 THEN I select which criteria to include in the password
+<!-- Status: complete -->
 WHEN prompted for the length of the password
 THEN I choose a length of at least 8 characters and no more than 128 characters
+<!-- Status: complete -->
 WHEN prompted for character types to include in the password
 THEN I choose lowercase, uppercase, numeric, and/or special characters
+<!-- Status: complete -->
 WHEN I answer each prompt
 THEN my input should be validated and at least one character type should be selected
+<!-- Status: complete, including an alert that indicates what character types were selected -->
 WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
+<!-- Status: complete -->
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+<!-- Status: auto-complete; provided for us -->
 ```
 
 The following image demonstrates the application functionality:
